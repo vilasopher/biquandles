@@ -21,8 +21,7 @@ Biquandle2CocycleAxiom1Q[Biquandle2Cocycle[B_Biquandle, \[Phi]_List]] := AllTrue
 
 Biquandle2CocycleAxiom2Helper[B_Biquandle, \[Phi]_List, List[x_,y_,z_]] := \[Phi][[x,y]] \[Phi][[y,z]] \[Phi][[OvTri[B,x,y], UnTri[B,z,y]]] == \[Phi][[x,z]] \[Phi][[OvTri[B,y,x], OvTri[B,z,x]]] \[Phi][[UnTri[B,x,z], UnTri[B,y,z]]];
 
-Biquandle2CocycleAxiom2Q[Biquandle2Cocycle[B_Biquandle, \[Phi]_List]] := AllTrue[Tuples[BiquandleElements[B],3], 
-2Helper[B,\[Phi],#]&];
+Biquandle2CocycleAxiom2Q[Biquandle2Cocycle[B_Biquandle, \[Phi]_List]] := AllTrue[Tuples[BiquandleElements[B],3], Biquandle2CocycleAxiom2Helper[B,\[Phi],#]&];
 
 Biquandle2CocycleQ[\[Phi]_Biquandle2Cocycle] := Biquandle2CocycleAxiom1Q[\[Phi]] && Biquandle2CocycleAxiom2Q[\[Phi]];
 
